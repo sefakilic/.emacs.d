@@ -24,3 +24,9 @@
 
 ;; HTML-mode
 (add-hook 'html-mode-hook 'html-autoview-mode)
+
+;; python-mode
+;; lazy way to install python-mode in ubuntu: sudo apt-get install python-mode
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(require 'ipython) ; use ipython as python shell
