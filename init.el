@@ -1,11 +1,15 @@
-;; Set font
-(set-default-font "monospace 10")
-;; Show line-number in the mode line
-(line-number-mode 1)
-;; Show column-number in the mode line
-(column-number-mode 1)
+;; Hi emacs! Let me introduce myself.
+(setq user-full-name "Sefa Kilic")
+(setq user-mail-address "sefakilic@gmail.com")
 
-;; ===== Turn on Auto Fill mode automatically in all modes =====
+
+(set-default-font "monospace 10")     ;; Set font
+(line-number-mode 1)                  ;; Show line-number in the mode line
+(column-number-mode 1)                ;; Show column-number in the mode line
+(scroll-bar-mode 1)                   ;; use scrollbar
+(tool-bar-mode 1)                     ;; display toolbar
+
+;; Turn on Auto Fill mode automatically in all modes.
 ;; Auto-fill-mode the the automatic wrapping of lines and insertion of
 ;; newlines when the cursor goes over the column limit.
 ;; This should actually turn on auto-fill-mode by default in all major
@@ -18,3 +22,5 @@
 (require 'uniquify)
 (set 'uniquify-buffer-name-style 'forward) 
 
+;; HTML-mode
+(add-hook 'html-mode-hook 'html-autoview-mode)
