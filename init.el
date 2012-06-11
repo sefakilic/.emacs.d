@@ -7,7 +7,7 @@
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
 (scroll-bar-mode 1)                   ;; use scrollbar
-(tool-bar-mode 1)                     ;; display toolbar
+(tool-bar-mode -1)                     ;; display toolbar
 
 ;; Turn on Auto Fill mode automatically in all modes.
 ;; Auto-fill-mode the the automatic wrapping of lines and insertion of
