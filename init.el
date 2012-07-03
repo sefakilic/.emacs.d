@@ -35,4 +35,4 @@
 ;; color-theme
 ;; for color-theme package install emacs-goodies
 (require 'zenburn)
-(color-theme-zenburn)
+(zenburn)
