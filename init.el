@@ -2,11 +2,12 @@
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
+(add-to-list 'load-path "~/.emacs.d/")
 
 (set-default-font "monospace 10")     ;; Set font
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
-(scroll-bar-mode 1)                   ;; use scrollbar
+(scroll-bar-mode -1)                   ;; use scrollbar
 (tool-bar-mode -1)                     ;; display toolbar
 
 ;; Turn on Auto Fill mode automatically in all modes.
@@ -30,3 +31,8 @@
 (require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (require 'ipython) ; use ipython as python shell
+
+;; color-theme
+;; for color-theme package install emacs-goodies
+(require 'zenburn)
+(color-theme-zenburn)
