@@ -43,7 +43,8 @@
 ;; dired settings
 ;; Dired copy folders recursively without confirmation
 (setq dired-recursive-copies 'always)
-
+;; sort directories first
+(setq dired-listing-switches "-lXGh --group-directories-first")
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
