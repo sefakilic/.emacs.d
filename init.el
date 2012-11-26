@@ -44,7 +44,7 @@
 ;; Dired copy folders recursively without confirmation
 (setq dired-recursive-copies 'always)
 ;; sort directories first
-(setq dired-listing-switches "-lXGh --group-directories-first")
+(setq dired-listing-switches "-alh --group-directories-first")
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
@@ -56,3 +56,19 @@
       "Kill all other buffers."
       (interactive)
       (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
+;; mediawiki
+(require 'mediawiki)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
+ '(mediawiki-site-default "erilllab"))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
