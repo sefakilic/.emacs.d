@@ -40,11 +40,19 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (require 'ipython) ; use ipython as python shell
 
+;; scheme-mode
+;; load-scheme
+(require 'xscheme)
+(add-hook 'scheme-mode-hook
+	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+
+;; cmode
+(add-hook 'c-mode-common-hook
+	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+
 ;; dired settings
 ;; Dired copy folders recursively without confirmation
 (setq dired-recursive-copies 'always)
-;; sort directories first
-(setq dired-listing-switches "-lXGh --group-directories-first")
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
