@@ -89,7 +89,8 @@
 ;; yasnippet
 (add-to-list 'load-path "yasnippet")
 (require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/yasnippet/snippets"))
 (yas-global-mode 1)
 ;; stop yasnippet auto-indent
 (setq yas/indent-line 'fixed)
-
