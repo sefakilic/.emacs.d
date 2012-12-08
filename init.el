@@ -37,7 +37,6 @@
 
 ;; sort directories first
 (setq dired-listing-switches "-alh --group-directories-first")
->>>>>>> 1ee987a01ad6482cb210fd4b90a406614a977a88
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
@@ -65,8 +64,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
-
-
 
 ;; programming modes
 
