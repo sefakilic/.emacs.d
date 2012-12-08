@@ -35,6 +35,10 @@
 ;; Dired copy folders recursively without confirmation
 (setq dired-recursive-copies 'always)
 
+;; sort directories first
+(setq dired-listing-switches "-alh --group-directories-first")
+>>>>>>> 1ee987a01ad6482cb210fd4b90a406614a977a88
+
 ;; color-theme
 ;; for color-theme package install emacs-goodies
 (require 'zenburn)
@@ -45,6 +49,24 @@
       "Kill all other buffers."
       (interactive)
       (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
+;; mediawiki
+(require 'mediawiki)
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
+ '(mediawiki-site-default "erilllab"))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
+
 
 ;; programming modes
 
@@ -73,3 +95,4 @@
 (yas-global-mode 1)
 ;; stop yasnippet auto-indent
 (setq yas/indent-line 'fixed)
+
