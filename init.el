@@ -31,6 +31,23 @@
 (require 'uniquify)
 (set 'uniquify-buffer-name-style 'forward) 
 
+;; dired settings
+;; Dired copy folders recursively without confirmation
+(setq dired-recursive-copies 'always)
+
+;; color-theme
+;; for color-theme package install emacs-goodies
+(require 'zenburn)
+(zenburn)
+
+;; Kill all buffers, except the current one
+(defun kill-other-buffers ()
+      "Kill all other buffers."
+      (interactive)
+      (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+
+;; programming modes
+
 ;; HTML-mode
 ;;(add-hook 'html-mode-hook 'html-autoview-mode)
 
@@ -50,17 +67,9 @@
 (add-hook 'c-mode-common-hook
 	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
-;; dired settings
-;; Dired copy folders recursively without confirmation
-(setq dired-recursive-copies 'always)
-
-;; color-theme
-;; for color-theme package install emacs-goodies
-(require 'zenburn)
-(zenburn)
-
-;; Kill all buffers, except the current one
-(defun kill-other-buffers ()
-      "Kill all other buffers."
-      (interactive)
-      (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
+;; yasnippet
+(add-to-list 'load-path "yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+;; stop yasnippet auto-indent
+(setq yas/indent-line 'fixed)
