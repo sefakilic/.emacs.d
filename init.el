@@ -18,7 +18,7 @@
 ;; This should actually turn on auto-fill-mode by default in all major
 ;; modes. The other way to do this is to turn on the fill for specific modes
 ;; via hooks.
-(setq-default fill-column 80)
+(setq-default fill-column 85)
 (setq auto-fill-mode 1)
 
 ;; autopair
