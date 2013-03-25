@@ -34,9 +34,14 @@
 ;; dired settings
 ;; Dired copy folders recursively without confirmation
 (setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'always)
 
 ;; sort directories first
 (setq dired-listing-switches "-alh --group-directories-first")
+
+;; dired omit files
+(require 'dired-x)
+(setq dired-omit-mode 1)
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
@@ -87,7 +92,7 @@
 	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
 ;; yasnippet
-(add-to-list 'load-path "yasnippet")
+(add-to-list 'load-path "~/.emacs.d/yasnippet")
 (require 'yasnippet)
 (setq yas-snippet-dirs
       '("~/.emacs.d/yasnippet/snippets"))
