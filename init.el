@@ -18,7 +18,7 @@
 ;; This should actually turn on auto-fill-mode by default in all major
 ;; modes. The other way to do this is to turn on the fill for specific modes
 ;; via hooks.
-(setq-default fill-column 85)
+(setq-default fill-column 90)
 (setq auto-fill-mode 1)
 
 ;; autopair
@@ -37,6 +37,9 @@
 
 ;; sort directories first
 (setq dired-listing-switches "-alh --group-directories-first")
+
+;; delete by moving to trash
+(setq delete-by-moving-to-trash t)
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
@@ -94,3 +97,6 @@
 (yas-global-mode 1)
 ;; stop yasnippet auto-indent
 (setq yas/indent-line 'fixed)
+
+;; tetris score file
+(setq tetris-score-file "~/emacs.d/tetris.score")
