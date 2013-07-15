@@ -52,8 +52,15 @@
 ;; sort directories first
 (setq dired-listing-switches "-alh --group-directories-first")
 ;; dired omit files
-(require 'dired-x)
-(setq dired-omit-mode 1)
+(require 'dired-x) 
+(setq dired-omit-files 
+      (rx (or (seq bol (? ".") "#")         ;; emacs autosave files 
+              (seq "~" eol)                 ;; backup-files 
+              (seq bol "svn" eol)           ;; svn dirs 
+              (seq ".pyc" eol)
+              ))) 
+(add-hook 'dired-mode-hook (lambda () (dired-omit-mode 1))) 
+
 
 ;; delete by moving to trash
 (setq delete-by-moving-to-trash t)
