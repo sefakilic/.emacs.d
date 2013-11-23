@@ -11,8 +11,6 @@
 (scroll-bar-mode -1)                  ;; use scrollbar
 (tool-bar-mode -1)                    ;; display toolbar
 
-(add-hook 'comint-output-filter-functions
-	  'comint-watch-for-password-prompt)
 
 (setq-default fill-column 85)
 (setq-default indent-tabs-mode nil)
