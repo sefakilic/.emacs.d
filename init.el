@@ -4,7 +4,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 
-(set-default-font "monaco-10")       ;; Set font
+(set-default-font "monaco-10.2")       ;; Set font
 ;;(set-default-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
@@ -15,6 +15,10 @@
 	  'comint-watch-for-password-prompt)
 
 (setq-default fill-column 85)
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
+
 
 ;; Turn on Auto Fill mode automatically in all modes.
 ;; Auto-fill-mode the the automatic wrapping of lines and insertion of
@@ -115,9 +119,15 @@
 (add-hook 'scheme-mode-hook
 	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
+
 ;; cmode
 (add-hook 'c-mode-common-hook
 	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
+
+;; octave mode
+(autoload 'octave-mode "octave-mod" nil t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
@@ -130,3 +140,18 @@
 
 ;; tetris score file
 (setq tetris-score-file "~/emacs.d/tetris.score")
+
+;; calendar
+(setq calendar-week-start-day 1)
+
+;; package management
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
+
+; jabber configuration
+(setq jabber-account-list
+      '(("sefa1@umbc.edu"
+         (:network-server . "talk.google.com")
+         (:connection-type . ssl))))
