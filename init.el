@@ -4,8 +4,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/")
 
-(set-default-font "monaco-10.2")       ;; Set font
-;;(set-default-font "monospace-10")
+;;(set-default-font "monaco-10.2")      
+(set-default-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
 (scroll-bar-mode -1)                  ;; use scrollbar
@@ -16,15 +16,12 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-
-
 ;; Turn on Auto Fill mode automatically in all modes.
 ;; Auto-fill-mode the the automatic wrapping of lines and insertion of
 ;; newlines when the cursor goes over the column limit.
 ;; This should actually turn on auto-fill-mode by default in all major
 ;; modes. The other way to do this is to turn on the fill for specific modes
 ;; via hooks.
-
 (setq auto-fill-mode 1)
 
 ;; cut-copy-paste to/from emacs
@@ -37,7 +34,6 @@
       kept-new-versions 6
       kept-old-versions 2
       version-control t)                              ; use versioned backups
-
 
 ;; autopair
 (require 'autopair)
@@ -117,7 +113,6 @@
 (add-hook 'scheme-mode-hook
 	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
 
-
 ;; cmode
 (add-hook 'c-mode-common-hook
 	  (lambda () (local-set-key (kbd "RET") 'newline-and-indent)))
@@ -153,3 +148,8 @@
       '(("sefa1@umbc.edu"
          (:network-server . "talk.google.com")
          (:connection-type . ssl))))
+
+; interactively do things
+; http://www.emacswiki.org/emacs/InteractivelyDoThings
+(require 'ido)
+(ido-mode t)
