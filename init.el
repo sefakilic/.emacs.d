@@ -12,7 +12,7 @@
 (tool-bar-mode -1)                    ;; display toolbar
 
 
-(setq-default fill-column 85)
+(setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
@@ -153,3 +153,6 @@
 ; http://www.emacswiki.org/emacs/InteractivelyDoThings
 (require 'ido)
 (ido-mode t)
+
+; orgmode .org to pdf
+(setq org-latex-to-pdf-process '("texi2dvi --pdf --clean --verbose --batch %f"))
