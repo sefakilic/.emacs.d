@@ -1,3 +1,4 @@
+
 ;; Hi emacs! Let me introduce myself. 
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
@@ -155,4 +156,9 @@
 (ido-mode t)
 
 ; orgmode .org to pdf
-(setq org-latex-to-pdf-process '("texi2dvi --pdf --clean --verbose --batch %f"))
+;(setq org-latex-to-pdf-process '("texi2dvi --pdf --clean --verbose --batch %f"))
+(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %b"
+                                 "bibtex %b"
+                                 "pdflatex -interaction nonstopmode %b"
+                                 "pdflatex -interaction nonstopmode %b"))
+; (setq org-latex-to-pdf-process '("latexmk -c %f"))
