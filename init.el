@@ -20,7 +20,7 @@
 ;; This should actually turn on auto-fill-mode by default in all major
 ;; modes. The other way to do this is to turn on the fill for specific modes
 ;; via hooks.
-;; (setq auto-fill-mode t)
+(setq auto-fill-mode t)
 
 ;; cut-copy-paste to/from emacs
 (setq x-select-enable-clipboard t)
@@ -161,8 +161,12 @@
 
 (setq org-export-latex-table-caption-above nil)
 
+;; latex
+(setq TeX-PDF-mode t)
+
 ; flyspell
 (add-hook 'org-mode-hook (lambda () (flyspell-mode)))
+(add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode)))
 
 ; flyspell for comments in source code
 (add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
@@ -170,3 +174,5 @@
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
+; start eshell or switch to it if one is active
+(global-set-key (kbd "C-x e") 'eshell)
