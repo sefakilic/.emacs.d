@@ -67,7 +67,7 @@
 ;; color-theme
 ;; for color-theme package install emacs-goodies
 (require 'zenburn)
-;; (zenburn)
+(zenburn)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -85,7 +85,6 @@
  '(column-number-mode t)
  '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
  '(mediawiki-site-default "erilllab")
- '(org-agenda-files (quote ("~/Dropbox/daily_todo.org")))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -176,3 +175,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 ; start eshell or switch to it if one is active
 (global-set-key (kbd "C-x e") 'eshell)
+
+; comment region
+(global-set-key (kbd "C-x C-;") 'comment-region)
