@@ -170,6 +170,7 @@
 ; flyspell for comments in source code
 (add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
 (add-hook 'c++-mode-hook (lambda () (flyspell-prog-mode)))
+(add-hook 'haskell-mode-hook (lambda () (flyspell-prog-mode)))
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
