@@ -85,6 +85,7 @@
  '(column-number-mode t)
  '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
  '(mediawiki-site-default "erilllab")
+ '(org-agenda-files nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -163,14 +164,19 @@
 ;; latex
 (setq TeX-PDF-mode t)
 
-; flyspell
-(add-hook 'org-mode-hook (lambda () (flyspell-mode)))
-(add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode)))
+
+(defun turn-spell-checking-on ()
+  "Turn speck-mode or flyspell-mode on"
+  ;; (flyspell-mode 1)
+  (speck-mode 1))
+
+(add-hook 'org-mode-hook (lambda () 'turn-spell-checking-on))
+(add-hook 'LaTeX-mode-hook (lambda () 'turn-spell-checking-on))
 
 ; flyspell for comments in source code
-(add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
-(add-hook 'c++-mode-hook (lambda () (flyspell-prog-mode)))
-(add-hook 'haskell-mode-hook (lambda () (flyspell-prog-mode)))
+;(add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
+;(add-hook 'c++-mode-hook (lambda () (flyspell-prog-mode)))
+;(add-hook 'haskell-mode-hook (lambda () (flyspell-prog-mode)))
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -179,3 +185,10 @@
 
 ; comment region
 (global-set-key (kbd "C-x C-;") 'comment-region)
+
+;; org mode agenda
+(setq org-agenda-files (list "~/Dropbox/org/things.org"))
+(global-set-key (kbd "C-c a") 'org-agenda)
+(defun things()
+  (interactive)
+  (find-file "~/Dropbox/org/things.org"))
