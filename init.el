@@ -1,3 +1,4 @@
+
 ;; Hi emacs! Let me introduce myself. 
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
@@ -123,6 +124,7 @@
 
 ;; markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
@@ -168,13 +170,16 @@
 (setq TeX-PDF-mode t)
 
 
+;; spell checking
 (defun turn-spell-checking-on ()
   "Turn speck-mode or flyspell-mode on"
-  ;; (flyspell-mode 1)
-  (speck-mode 1))
+  (flyspell-mode 1)
+  ;(speck-mode 1))
+)
 
 (add-hook 'org-mode-hook (lambda () 'turn-spell-checking-on))
 (add-hook 'LaTeX-mode-hook (lambda () 'turn-spell-checking-on))
+(setq ispell-personal-dictionary "~/Dropbox/dotfiles/.aspell.en.pws")
 
 ; flyspell for comments in source code
 ;(add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
