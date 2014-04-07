@@ -14,14 +14,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-;; Turn on Auto Fill mode automatically in all modes.
-;; Auto-fill-mode the the automatic wrapping of lines and insertion of
-;; newlines when the cursor goes over the column limit.
-;; This should actually turn on auto-fill-mode by default in all major
-;; modes. The other way to do this is to turn on the fill for specific modes
-;; via hooks.
-(setq auto-fill-mode t)
-
 ;; cut-copy-paste to/from emacs
 (setq x-select-enable-clipboard t)
 
@@ -36,6 +28,19 @@
 ;; autopair
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers 
+
+;; auto-complete
+(require 'auto-complete)
+(global-auto-complete-mode)
+
+;; fill-column-indicator draws a line on the right side of the screen,
+;; indicating "the ideal maximum line length"
+(require  'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-dash-pattern 0.8)
+(setq fci-rule-column)
+(define-globalized-minor-mode global-fci-minor-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-minor-mode)
 
 ;; show paren mode
 (show-paren-mode 1)
@@ -95,6 +100,9 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; text mode
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
 ;; programming modes
 
 ;; HTML-mode
@@ -104,7 +112,7 @@
 ;; lazy way to install python-mode in ubuntu: sudo apt-get install python-mode
 (require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(require 'ipython) ; use ipython as python shell
+(require 'ipython)
 
 ;; scheme-mode
 ;; load-scheme
