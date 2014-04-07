@@ -131,6 +131,7 @@
 
 ;; markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
@@ -176,13 +177,10 @@
 (setq TeX-PDF-mode t)
 
 
-(defun turn-spell-checking-on ()
-  "Turn speck-mode or flyspell-mode on"
-  ;; (flyspell-mode 1)
-  (speck-mode 1))
-
-(add-hook 'org-mode-hook (lambda () 'turn-spell-checking-on))
-(add-hook 'LaTeX-mode-hook (lambda () 'turn-spell-checking-on))
+;; spell checking
+(add-hook 'org-mode-hook (lambda() (flyspell-mode 1)))
+(add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode 1)))
+(setq ispell-personal-dictionary "~/.emacs.d/.aspell.en.pws")
 
 ; flyspell for comments in source code
 ;(add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
