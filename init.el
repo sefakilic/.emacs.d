@@ -2,7 +2,7 @@
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d")
 
 (set-default-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
@@ -30,8 +30,8 @@
 (autopair-global-mode) ;; enable autopair in all buffers 
 
 ;; auto-complete
-(require 'auto-complete)
-(global-auto-complete-mode)
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; fill-column-indicator draws a line on the right side of the screen,
 ;; indicating "the ideal maximum line length"
@@ -40,7 +40,7 @@
 (setq fci-dash-pattern 0.8)
 (setq fci-rule-column)
 (define-globalized-minor-mode global-fci-minor-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-minor-mode)
+;;(global-fci-minor-mode)
 
 ;; show paren mode
 (show-paren-mode 1)
