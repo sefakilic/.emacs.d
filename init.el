@@ -25,22 +25,15 @@
       kept-old-versions 2
       version-control t)                              ; use versioned backups
 
+;; emacs windows resize
+(global-set-key (kbd "M-s-<left>") 'shrink-window-horizontally)
+    (global-set-key (kbd "M-s-<right>") 'enlarge-window-horizontally)
+    (global-set-key (kbd "M-s-<down>") 'shrink-window)
+    (global-set-key (kbd "M-s-<up>") 'enlarge-window)
+
 ;; autopair
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers 
-
-;; auto-complete
-(require 'auto-complete-config)
-(ac-config-default)
-
-;; fill-column-indicator draws a line on the right side of the screen,
-;; indicating "the ideal maximum line length"
-(require  'fill-column-indicator)
-(setq fci-rule-width 1)
-(setq fci-dash-pattern 0.8)
-(setq fci-rule-column)
-(define-globalized-minor-mode global-fci-minor-mode fci-mode (lambda () (fci-mode 1)))
-;;(global-fci-minor-mode)
 
 ;; show paren mode
 (show-paren-mode 1)
@@ -151,7 +144,8 @@
 ;; package management
 (require 'package)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("marmalade" . "http://marmalade-repo.org/packages/")
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
 ; jabber configuration
