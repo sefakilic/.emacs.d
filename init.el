@@ -1,10 +1,12 @@
+
 ;; Hi emacs! Let me introduce myself. 
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
 (add-to-list 'load-path "~/.emacs.d")
 
-(set-default-font "monospace-10")
+(set-default-font "DejaVu Sans Mono-10")
+;;(set-default-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
 (scroll-bar-mode -1)                  ;; use scrollbar
@@ -97,6 +99,7 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; programming modes
+
 
 ;; HTML-mode
 ;;(add-hook 'html-mode-hook 'html-autoview-mode)
