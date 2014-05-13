@@ -7,9 +7,9 @@
 
 ;; package management
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/")
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
 
@@ -26,8 +26,8 @@
 (setq-default tab-width 4)
 
 (require 'fill-column-indicator)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
+(add-hook 'python-mode-hook (lambda () (fci-mode 1)))
+(add-hook 'org-mode-hook (lambda () (fci-mode 1)))
 
 ;; cut-copy-paste to/from emacs
 (setq x-select-enable-clipboard t)
@@ -121,6 +121,8 @@
 (require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (require 'ipython)
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
 
 ;; scheme-mode
 ;; load-scheme
