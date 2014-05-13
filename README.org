@@ -1,0 +1,3 @@
+* My Emacs configuration files
+
+/There is no system but GNU and Linux is one of its kernels./
