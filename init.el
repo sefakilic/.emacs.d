@@ -5,6 +5,15 @@
 
 (add-to-list 'load-path "/home/sefa/.emacs.d")
 
+;; package management
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/")
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
+(package-initialize)
+
+
+
 (set-default-font "DejaVu Sans Mono-10")
 ;;(set-default-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
@@ -16,7 +25,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
-(package-initialize)
 (require 'fill-column-indicator)
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
 (global-fci-mode 1)
@@ -71,8 +79,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-(require 'zenburn)
-(zenburn)
+(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -148,13 +155,6 @@
 
 ;; calendar
 (setq calendar-week-start-day 1)
-
-;; package management
-(require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/")
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
 
 ; jabber configuration
 (setq jabber-account-list
