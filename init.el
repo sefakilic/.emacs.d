@@ -1,4 +1,3 @@
-
 ;; Hi emacs! Let me introduce myself. 
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
@@ -94,10 +93,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-use-quick-help t)
  '(column-number-mode t)
  '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
  '(mediawiki-site-default "erilllab")
- '(org-agenda-files nil)
+ '(org-agenda-files nil t)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -111,6 +111,8 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 ;; programming modes
+(require 'auto-complete)
+(setq ac-max-width 80)
 
 
 ;; HTML-mode
