@@ -3,7 +3,7 @@
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "/home/sefa/.emacs.d")
 
 (set-default-font "DejaVu Sans Mono-10")
 ;;(set-default-font "monospace-10")
@@ -15,6 +15,11 @@
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+
+(package-initialize)
+(require 'fill-column-indicator)
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(global-fci-mode 1)
 
 ;; cut-copy-paste to/from emacs
 (setq x-select-enable-clipboard t)
