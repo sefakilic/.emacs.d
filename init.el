@@ -113,6 +113,8 @@
 ;; programming modes
 (require 'auto-complete)
 (setq ac-max-width 80)
+;(setq ac-use-quick-help t)
+(setq ac-quick-help-prefer-pos-tip t)
 
 
 ;; HTML-mode
