@@ -12,8 +12,11 @@
 (package-initialize)
 
 
-
+; font size
 (set-default-font "DejaVu Sans Mono-10")
+(define-key global-map (kbd "C-+") 'text-scale-increase)
+(define-key global-map (kbd "C--") 'text-scale-decrease)
+
 ;;(set-default-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
@@ -23,6 +26,10 @@
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
+
+; window switching
+(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
+(global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
 (require 'fill-column-indicator)
 (add-hook 'python-mode-hook (lambda () (fci-mode 1)))
@@ -78,7 +85,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-(require 'zenburn-theme)
+;(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -113,7 +120,7 @@
 ;; programming modes
 (require 'auto-complete)
 (setq ac-max-width 80)
-;(setq ac-use-quick-help t)
+(require 'pos-tip)
 (setq ac-quick-help-prefer-pos-tip t)
 
 
