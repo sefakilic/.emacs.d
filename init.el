@@ -1,4 +1,6 @@
-;; Hi emacs! Let me introduce myself. 
+
+; Hi emacs! Let me introduce myself. 
+
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
@@ -10,7 +12,6 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
-
 
 ; font size
 (set-default-font "DejaVu Sans Mono-10")
@@ -123,6 +124,11 @@
 (require 'pos-tip)
 (setq ac-quick-help-prefer-pos-tip t)
 
+; on the syntax checking and linting
+(require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+
 
 ;; HTML-mode
 ;;(add-hook 'html-mode-hook 'html-autoview-mode)
@@ -216,3 +222,6 @@
 (defun things()
   (interactive)
   (find-file "~/Dropbox/org/things.org"))
+
+;;; init.el ends here
+
