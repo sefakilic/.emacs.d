@@ -13,6 +13,9 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
+; start in fullscreen
+(custom-set-variables '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
 ; font size
 (set-default-font "DejaVu Sans Mono-10")
 (define-key global-map (kbd "C-+") 'text-scale-increase)
