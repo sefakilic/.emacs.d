@@ -202,6 +202,11 @@
 (add-hook 'org-mode-hook (lambda() (flyspell-mode 1)))
 (add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode 1)))
 (setq ispell-personal-dictionary "~/.emacs.d/.aspell.en.pws")
+;; language tool
+(require 'langtool)
+(setq langtool-java-bin "/usr/bin/java")
+(setq langtool-language-tool-jar "/usr/share/java/languagetool-commandline.jar")
+
 
 ; flyspell for comments in source code
 ;(add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
