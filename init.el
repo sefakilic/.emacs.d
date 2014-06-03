@@ -8,13 +8,25 @@
 
 ;; package management
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
 ; start in fullscreen
-(custom-set-variables '(initial-frame-alist (quote ((fullscreen . maximized)))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ac-use-quick-help t)
+ '(column-number-mode t)
+ '(custom-safe-themes (quote ("cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default)))
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
+ '(mediawiki-site-default "erilllab")
+ '(org-agenda-files nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 
 ; font size
 (set-default-font "DejaVu Sans Mono-10")
@@ -35,10 +47,6 @@
 (global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2))) ;; forward two
 
-(require 'fill-column-indicator)
-(add-hook 'python-mode-hook (lambda () (fci-mode 1)))
-(add-hook 'org-mode-hook (lambda () (fci-mode 1)))
-
 ;; cut-copy-paste to/from emacs
 (setq x-select-enable-clipboard t)
 
@@ -52,9 +60,9 @@
 
 ;; emacs windows resize
 (global-set-key (kbd "M-s-<left>") 'shrink-window-horizontally)
-    (global-set-key (kbd "M-s-<right>") 'enlarge-window-horizontally)
-    (global-set-key (kbd "M-s-<down>") 'shrink-window)
-    (global-set-key (kbd "M-s-<up>") 'enlarge-window)
+(global-set-key (kbd "M-s-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "M-s-<down>") 'shrink-window)
+(global-set-key (kbd "M-s-<up>") 'enlarge-window)
 
 ;; autopair
 (require 'autopair)
@@ -89,7 +97,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-;(require 'zenburn-theme)
+(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -99,18 +107,7 @@
 
 ;; mediawiki
 (require 'mediawiki)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ac-use-quick-help t)
- '(column-number-mode t)
- '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
- '(mediawiki-site-default "erilllab")
- '(org-agenda-files nil t)
- '(show-paren-mode t)
- '(tool-bar-mode nil))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -131,18 +128,30 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-
-
 ;; HTML-mode
 ;;(add-hook 'html-mode-hook 'html-autoview-mode)
 
 ;; python-mode
-;; lazy way to install python-mode in ubuntu: sudo apt-get install python-mode
-(require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(require 'ipython)
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
+(setq
+ python-shell-interpreter "ipython"
+ python-shell-interpreter-args ""
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+)
+
+;;; bind RET to py-newline-and-indent
+(add-hook 'python-mode-hook '(lambda () 
+     (define-key python-mode-map "\C-m" 'newline-and-indent)))
+
+(require 'fill-column-indicator)
+(add-hook 'python-mode-hook (lambda () (fci-mode 1)))
+(add-hook 'org-mode-hook (lambda () (fci-mode 1)))
 
 ;; scheme-mode
 ;; load-scheme
