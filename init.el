@@ -243,6 +243,13 @@
 ; load pianobar, to run: M-x pianobar
 (autoload 'pianobar "pianobar" nil t)
 (setq pianobar-username "sefakilic@gmail.com")
-(setq pianobar-key "<f7>")
+; s-m (music)
+(global-set-key (kbd "s-m m") 'pianobar)
+(global-set-key (kbd "s-m n") 'pianobar-next-song)
+(global-set-key (kbd "s-m c") 'pianobar-change-station)
+(global-set-key (kbd "s-m l") 'pianobar-love-current-song)
+(global-set-key (kbd "s-m h") 'pianobar-ban-current-song)
+(global-set-key (kbd "s-m p") 'pianobar-play-or-pause)
+
 ;;; init.el ends here
 
