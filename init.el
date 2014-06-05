@@ -240,5 +240,9 @@
   (interactive)
   (find-file "~/Dropbox/org/things.org"))
 
+; load pianobar, to run: M-x pianobar
+(autoload 'pianobar "pianobar" nil t)
+(setq pianobar-username "sefakilic@gmail.com")
+(setq pianobar-key "<f7>")
 ;;; init.el ends here
 
