@@ -64,6 +64,12 @@
 (global-set-key (kbd "M-s-<down>") 'shrink-window)
 (global-set-key (kbd "M-s-<up>") 'enlarge-window)
 
+
+; terminal
+(global-set-key (kbd "C-x t") 'term)
+(add-hook 'term-mode-hook (lambda() (yas-minor-mode -1)))
+
+
 ;; autopair
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers 
@@ -168,6 +174,9 @@
 (setq auto-mode-alist
       (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
+;; haskell-mode
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
 ;; markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -213,17 +222,18 @@
 ;; spell checking
 (add-hook 'org-mode-hook (lambda() (flyspell-mode 1)))
 (add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode 1)))
+(add-hook 'markdown-mode-hook (lambda () (flyspell-mode 1)))
 (setq ispell-personal-dictionary "~/.emacs.d/.aspell.en.pws")
+
 ;; language tool
 (require 'langtool)
 (setq langtool-java-bin "/usr/bin/java")
 (setq langtool-language-tool-jar "/usr/share/java/languagetool-commandline.jar")
 
-
 ; flyspell for comments in source code
-;(add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
-;(add-hook 'c++-mode-hook (lambda () (flyspell-prog-mode)))
-;(add-hook 'haskell-mode-hook (lambda () (flyspell-prog-mode)))
+(add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
+(add-hook 'c++-mode-hook (lambda () (flyspell-prog-mode)))
+(add-hook 'haskell-mode-hook (lambda () (flyspell-prog-mode)))
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
