@@ -141,15 +141,15 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
-(setq
- python-shell-interpreter "ipython"
- python-shell-interpreter-args ""
- python-shell-prompt-regexp "In \\[[0-9]+\\]: "
- python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
- python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
- python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
- python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
-)
+;; (setq
+;;  python-shell-interpreter "ipython"
+;;  python-shell-interpreter-args ""
+;;  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+;;  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+;;  python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+;;  python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
+;;  python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+;; )
 
 ;;; bind RET to py-newline-and-indent
 (add-hook 'python-mode-hook '(lambda () 
@@ -260,6 +260,13 @@
 (global-set-key (kbd "s-m l") 'pianobar-love-current-song)
 (global-set-key (kbd "s-m h") 'pianobar-ban-current-song)
 (global-set-key (kbd "s-m p") 'pianobar-play-or-pause)
+
+; babel
+(org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . nil)
+        (R . t)
+        (python . t)))
 
 ;;; init.el ends here
 
