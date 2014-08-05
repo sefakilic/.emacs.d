@@ -66,7 +66,7 @@
 
 
 ; terminal
-(global-set-key (kbd "C-x t") 'term)
+(global-set-key (kbd "C-x t") 'ansi-term)
 (add-hook 'term-mode-hook (lambda() (yas-minor-mode -1)))
 
 
@@ -141,15 +141,15 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-hook 'python-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)
-;; (setq
-;;  python-shell-interpreter "ipython"
-;;  python-shell-interpreter-args ""
-;;  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-;;  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-;;  python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
-;;  python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
-;;  python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
-;; )
+(setq
+ python-shell-interpreter "ipython"
+ python-shell-interpreter-args ""
+ python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+ python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+ python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+ python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
+ python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+)
 
 ;;; bind RET to py-newline-and-indent
 (add-hook 'python-mode-hook '(lambda () 
@@ -267,6 +267,11 @@
       '((emacs-lisp . nil)
         (R . t)
         (python . t)))
+
+;; emacs ipython notebook setup
+(require 'ein)
+; setup auto-completion using EIN and jedi.el together
+(add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
 
 ;;; init.el ends here
 
