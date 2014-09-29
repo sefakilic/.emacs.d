@@ -103,7 +103,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-(require 'zenburn-theme)
+;(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -180,6 +180,10 @@
 ;; markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; R-markdown
+(require 'polymode)
+(add-to-list 'auto-mode-alist '("\\.Rmd\\'" . poly-markdown+r-mode))
 
 ;; yasnippet
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
