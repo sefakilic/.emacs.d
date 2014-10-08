@@ -20,7 +20,7 @@
  ;; If there is more than one, they won't work right.
  '(ac-use-quick-help t)
  '(column-number-mode t)
- '(custom-safe-themes (quote ("cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default)))
+ '(custom-safe-themes (quote ("146d24de1bb61ddfa64062c29b5ff57065552a7c4019bee5d869e938782dfc2a" "cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default)))
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
  '(mediawiki-site-default "erilllab")
@@ -103,7 +103,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-;(require 'zenburn-theme)
+(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
