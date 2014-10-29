@@ -103,7 +103,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-(require 'zenburn-theme)
+;(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -212,15 +212,13 @@
 (ido-mode t)
 
 ; orgmode .org to pdf
-(setq org-latex-to-pdf-process '("pdflatex -interaction nonstopmode %b"
-                                 "bibtex %b"
-                                 "pdflatex -interaction nonstopmode %b"
-                                 "pdflatex -interaction nonstopmode %b"))
+(setq org-latex-to-pdf-process (list "latexmk -pdf %f %s"))
 
 (setq org-export-latex-table-caption-above nil)
 
 ;; latex
-(setq TeX-PDF-mode t)
+(require 'tex)
+(TeX-global-PDF-mode t)
 
 
 ;; spell checking
