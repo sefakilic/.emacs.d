@@ -1,9 +1,12 @@
-personal_ws-1.1 en 32 
+personal_ws-1.1 en 39
 RegTransBase
+aeruginosa
 Haskell
 Cellvibrio
+PSFM
 operon
 TFBS
+Pseudomonadaceae
 transcriptional
 peron
 PSSM
@@ -15,6 +18,8 @@ operons
 Pseudomonadales
 Vibrio
 genomics
+Moraxellaceae
+Pseudomonas
 regulon
 curation
 polysaccharides
@@ -24,8 +29,10 @@ phylogenetic
 resutls
 orthologous
 Regulons
+GitHub
+biofilm
 TF
-Japonicus
+japonicus
 translational
 CollecTF
 curations

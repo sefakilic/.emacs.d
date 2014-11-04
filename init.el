@@ -103,7 +103,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-;(require 'zenburn-theme)
+(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
