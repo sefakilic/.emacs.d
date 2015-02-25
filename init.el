@@ -1,6 +1,6 @@
-
 ; Hi emacs! Let me introduce myself. 
 
+;;; Code:
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
@@ -12,28 +12,11 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
-; start in fullscreen
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ac-use-quick-help t)
- '(column-number-mode t)
- '(custom-safe-themes (quote ("146d24de1bb61ddfa64062c29b5ff57065552a7c4019bee5d869e938782dfc2a" "cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default)))
- '(initial-frame-alist (quote ((fullscreen . maximized))))
- '(mediawiki-site-alist (quote (("erilllab" "http://erilllab.biosci.umbc.edu/wiki/" "sefa1" "" "Main Page"))))
- '(mediawiki-site-default "erilllab")
- '(org-agenda-files nil)
- '(show-paren-mode t)
- '(tool-bar-mode nil))
-
-; font size
-(set-default-font "DejaVu Sans Mono-10")
+;; increase/decrease font size
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
-;;(set-default-font "monospace-10")
+(set-frame-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
 (scroll-bar-mode -1)                  ;; use scrollbar
@@ -58,17 +41,23 @@
       kept-old-versions 2
       version-control t)                              ; use versioned backups
 
+;; When you visit a file, go to the last place where the point was.
+(require 'saveplace)
+(setq-default save-place t)
+
 ;; emacs windows resize
 (global-set-key (kbd "M-s-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "M-s-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "M-s-<down>") 'shrink-window)
 (global-set-key (kbd "M-s-<up>") 'enlarge-window)
 
+;; regex-aware search keybindings
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
 
 ; terminal
 (global-set-key (kbd "C-x t") 'ansi-term)
 (add-hook 'term-mode-hook (lambda() (yas-minor-mode -1)))
-
 
 ;; autopair
 (require 'autopair)
@@ -85,6 +74,7 @@
 ;; Dired copy folders recursively without confirmation
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
+
 ;; sort directories first
 (setq dired-listing-switches "-alh --group-directories-first")
 ;; dired omit files
@@ -96,7 +86,6 @@
               (seq ".pyc" eol)
               ))) 
 (add-hook 'dired-mode-hook (lambda () (dired-omit-mode 1))) 
-
 
 ;; delete by moving to trash
 (setq delete-by-moving-to-trash t)
@@ -210,6 +199,9 @@
 ; http://www.emacswiki.org/emacs/InteractivelyDoThings
 (require 'ido)
 (ido-mode t)
+
+;; use ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ; orgmode .org to pdf
 (setq org-latex-to-pdf-process (list "latexmk -pdf %f %s"))
