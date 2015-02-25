@@ -19,8 +19,9 @@
 (set-frame-font "monospace-10")
 (line-number-mode 1)                  ;; Show line-number in the mode line
 (column-number-mode 1)                ;; Show column-number in the mode line
-(scroll-bar-mode -1)                  ;; use scrollbar
-(tool-bar-mode -1)                    ;; display toolbar
+(menu-bar-mode -1)                    ;; hide the menu bar
+(scroll-bar-mode -1)                  ;; hide the scrollbar
+(tool-bar-mode -1)                    ;; do not dispaly toolbar
 
 (setq-default fill-column 80)
 (setq-default indent-tabs-mode nil)
@@ -54,6 +55,9 @@
 ;; regex-aware search keybindings
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
+
+;; make Emacs auto indent
+(define-key global-map (kbd "RET") 'newline-and-indent)
 
 ; terminal
 (global-set-key (kbd "C-x t") 'ansi-term)
@@ -92,7 +96,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-;(require 'zenburn-theme)               
+(require 'zenburn-theme)               
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
