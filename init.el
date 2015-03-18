@@ -144,6 +144,14 @@
  python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
 )
 
+;; javascript mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; comint mode for javascript REPL
+(defun node-repl () (interactive)
+  (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive")))
+(setenv "NODE_NO_READLINE" "1")         ;hack to fix broken prompt '>'
+
 ;;; bind RET to py-newline-and-indent
 (add-hook 'python-mode-hook '(lambda () 
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
