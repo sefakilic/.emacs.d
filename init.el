@@ -96,7 +96,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-(require 'zenburn-theme)               
+;(require 'zenburn-theme)               
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -275,3 +275,11 @@
 
 ;;; init.el ends here
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default))))
+
+(setq initial-buffer-choice "/home/sefa/Dropbox/org/things.org")
