@@ -147,10 +147,16 @@
 ;; javascript mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
-;; comint mode for javascript REPL
-(defun node-repl () (interactive)
-  (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive")))
-(setenv "NODE_NO_READLINE" "1")         ;hack to fix broken prompt '>'
+;; use Rhino shell for javascript
+(require 'js-comint)
+(setq inferior-js-program-command "/usr/bin/rhino")
+(add-hook 'js2-mode-hook '(lambda () 
+			    (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+			    (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+			    (local-set-key "\C-cb" 'js-send-buffer)
+			    (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+			    (local-set-key "\C-cl" 'js-load-file-and-go)
+			    ))
 
 ;;; bind RET to py-newline-and-indent
 (add-hook 'python-mode-hook '(lambda () 
