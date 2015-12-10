@@ -1,4 +1,4 @@
-; Hi emacs! Let me introduce myself. 
+; Hi emacs! Let me introduce myself.
 
 ;;; Code:
 (setq user-full-name "Sefa Kilic")
@@ -23,7 +23,7 @@
 (scroll-bar-mode -1)                  ;; hide the scrollbar
 (tool-bar-mode -1)                    ;; do not dispaly toolbar
 
-(setq-default fill-column 80)
+(setq-default fill-column 79)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 
@@ -65,14 +65,14 @@
 
 ;; autopair
 (require 'autopair)
-(autopair-global-mode) ;; enable autopair in all buffers 
+(autopair-global-mode) ;; enable autopair in all buffers
 
 ;; show paren mode
 (show-paren-mode 1)
 
 ;; make buffer names unique
 (require 'uniquify)
-(set 'uniquify-buffer-name-style 'forward) 
+(set 'uniquify-buffer-name-style 'forward)
 
 ;; dired settings
 ;; Dired copy folders recursively without confirmation
@@ -82,21 +82,21 @@
 ;; sort directories first
 (setq dired-listing-switches "-alh --group-directories-first")
 ;; dired omit files
-(require 'dired-x) 
-(setq dired-omit-files 
-      (rx (or (seq bol (? ".") "#")         ;; emacs autosave files 
-              (seq "~" eol)                 ;; backup-files 
-              (seq bol "svn" eol)           ;; svn dirs 
+(require 'dired-x)
+(setq dired-omit-files
+      (rx (or (seq bol (? ".") "#")         ;; emacs autosave files
+              (seq "~" eol)                 ;; backup-files
+              (seq bol "svn" eol)           ;; svn dirs
               (seq ".pyc" eol)
-              ))) 
-(add-hook 'dired-mode-hook (lambda () (dired-omit-mode 1))) 
+              )))
+(add-hook 'dired-mode-hook (lambda () (dired-omit-mode 1)))
 
 ;; delete by moving to trash
 (setq delete-by-moving-to-trash t)
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-;(require 'zenburn-theme)               
+;(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -150,7 +150,7 @@
 ;; use Rhino shell for javascript
 (require 'js-comint)
 (setq inferior-js-program-command "/usr/bin/rhino")
-(add-hook 'js2-mode-hook '(lambda () 
+(add-hook 'js2-mode-hook '(lambda ()
 			    (local-set-key "\C-x\C-e" 'js-send-last-sexp)
 			    (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
 			    (local-set-key "\C-cb" 'js-send-buffer)
@@ -159,7 +159,7 @@
 			    ))
 
 ;;; bind RET to py-newline-and-indent
-(add-hook 'python-mode-hook '(lambda () 
+(add-hook 'python-mode-hook '(lambda ()
      (define-key python-mode-map "\C-m" 'newline-and-indent)))
 
 (require 'fill-column-indicator)
@@ -294,6 +294,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default))))
+ '(custom-safe-themes (quote ("11636897679ca534f0dec6f5e3cb12f28bf217a527755f6b9e744bd240ed47e1" "19352d62ea0395879be564fc36bc0b4780d9768a964d26dfae8aad218062858d" "146d24de1bb61ddfa64062c29b5ff57065552a7c4019bee5d869e938782dfc2a" "cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default))))
 
 (setq initial-buffer-choice "/home/sefa/Dropbox/org/things.org")
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
