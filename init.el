@@ -1,10 +1,10 @@
-; Hi emacs! Let me introduce myself.
+;;; Hi emacs! Let me introduce myself.
 
 ;;; Code:
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
-(add-to-list 'load-path "/home/sefa/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d")
 
 ;; package management
 (require 'package)
@@ -96,23 +96,13 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-;(require 'zenburn-theme)
+(require 'zenburn-theme)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
       "Kill all other buffers."
       (interactive)
       (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
-
-;; mediawiki
-(require 'mediawiki)
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 ;; text mode
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
@@ -232,7 +222,6 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
-
 ;; spell checking
 (add-hook 'org-mode-hook (lambda() (flyspell-mode 1)))
 (add-hook 'LaTeX-mode-hook (lambda () (flyspell-mode 1)))
@@ -287,15 +276,7 @@
 ; setup auto-completion using EIN and jedi.el together
 (add-hook 'ein:connect-mode-hook 'ein:jedi-setup)
 
-;;; init.el ends here
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("11636897679ca534f0dec6f5e3cb12f28bf217a527755f6b9e744bd240ed47e1" "19352d62ea0395879be564fc36bc0b4780d9768a964d26dfae8aad218062858d" "146d24de1bb61ddfa64062c29b5ff57065552a7c4019bee5d869e938782dfc2a" "cd70962b469931807533f5ab78293e901253f5eeb133a46c2965359f23bfb2ea" default))))
-
-(setq initial-buffer-choice "/home/sefa/Dropbox/org/things.org")
-
+;; delete trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;;; init.el ends here
