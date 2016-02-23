@@ -4,7 +4,7 @@
 (setq user-full-name "Sefa Kilic")
 (setq user-mail-address "sefakilic@gmail.com")
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; package management
 (require 'package)
@@ -96,7 +96,7 @@
 
 ;; color-theme
 ;; for color-theme package install emacs-goodies
-(require 'zenburn-theme)
+(require 'zenburn)
 
 ;; Kill all buffers, except the current one
 (defun kill-other-buffers ()
@@ -256,13 +256,13 @@
 ; load pianobar, to run: M-x pianobar
 (autoload 'pianobar "pianobar" nil t)
 (setq pianobar-username "sefakilic@gmail.com")
-; s-m (music)
-(global-set-key (kbd "s-m m") 'pianobar)
-(global-set-key (kbd "s-m n") 'pianobar-next-song)
-(global-set-key (kbd "s-m c") 'pianobar-change-station)
-(global-set-key (kbd "s-m l") 'pianobar-love-current-song)
-(global-set-key (kbd "s-m h") 'pianobar-ban-current-song)
-(global-set-key (kbd "s-m p") 'pianobar-play-or-pause)
+; S-M (music)
+(global-set-key (kbd "S-M m") 'pianobar)
+(global-set-key (kbd "S-M n") 'pianobar-next-song)
+(global-set-key (kbd "S-M c") 'pianobar-change-station)
+(global-set-key (kbd "S-M l") 'pianobar-love-current-song)
+(global-set-key (kbd "S-M h") 'pianobar-ban-current-song)
+(global-set-key (kbd "S-M p") 'pianobar-play-or-pause)
 
 ; babel
 (org-babel-do-load-languages
