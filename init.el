@@ -279,4 +279,26 @@
 ;; delete trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; mac-os-x settings
+(when (eq system-type 'darwin)
+  ; font settings
+  (set-frame-font "monaco-10")
+  ; set PATH because we don't load .bashrc
+  (setenv "PATH" (concat "$HOME/bin:"
+                         "/bin:"
+                         "/usr/bin:"
+                         "/sbin:"
+                         "/usr/sbin:"
+                         "/usr/local/bin:"
+                         "/usr/local/sbin:"
+                         "/Library/TeX/texbin:"))
+  ; python path
+  (setenv "PYTHONPATH" "/usr/local/lib/python2.7/site-packages:")
+  (setenv "WORKON_HOME" "/home/sefa/.virtualenvs")
+
+  ; dired tweak
+  (setq insert-directory-program "/usr/local/bin/gls"))
+
+
+
 ;;; init.el ends here
