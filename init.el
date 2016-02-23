@@ -231,7 +231,7 @@
 ;; language tool
 (require 'langtool)
 (setq langtool-java-bin "/usr/bin/java")
-(setq langtool-language-tool-jar "/usr/share/java/languagetool-commandline.jar")
+(setq langtool-language-tool-jar "~/Dropbox/languagetool-commandline.jar")
 
 ; flyspell for comments in source code
 (add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
