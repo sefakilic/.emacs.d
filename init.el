@@ -284,22 +284,9 @@
 (when (eq system-type 'darwin)
   ; font settings
   (set-frame-font "monaco-11")
-  ; set PATH because we don't load .bashrc
-  (setenv "PATH" (concat "$HOME/bin:"
-                         "/bin:"
-                         "/usr/bin:"
-                         "/sbin:"
-                         "/usr/sbin:"
-                         "/usr/local/bin:"
-                         "/usr/local/sbin:"
-                         "/Library/TeX/texbin:"))
-  ; python path
-  (setenv "PYTHONPATH" "/usr/local/lib/python2.7/site-packages:")
-  (setenv "WORKON_HOME" "/home/sefa/.virtualenvs")
-
+  ; make sure environment variables inside Emacs look the same as in the shell.
+  (exec-path-from-shell-initialize)
   ; dired tweak
   (setq insert-directory-program "/usr/local/bin/gls"))
-
-
 
 ;;; init.el ends here
