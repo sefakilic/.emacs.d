@@ -233,6 +233,7 @@
 (setq langtool-java-bin "/usr/bin/java")
 (setq langtool-language-tool-jar "~/Dropbox/languagetool-commandline.jar")
 
+
 ; flyspell for comments in source code
 (add-hook 'python-mode-hook (lambda () (flyspell-prog-mode)))
 (add-hook 'c++-mode-hook (lambda () (flyspell-prog-mode)))
@@ -282,7 +283,7 @@
 ;; mac-os-x settings
 (when (eq system-type 'darwin)
   ; font settings
-  (set-frame-font "monaco-10")
+  (set-frame-font "monaco-11")
   ; set PATH because we don't load .bashrc
   (setenv "PATH" (concat "$HOME/bin:"
                          "/bin:"
