@@ -221,6 +221,8 @@
 (TeX-global-PDF-mode t)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
+(setq reftex-default-bibliography '("~/Dropbox/bib/bibliography.bib"))
+
 
 ;; spell checking
 (add-hook 'org-mode-hook (lambda() (flyspell-mode 1)))
