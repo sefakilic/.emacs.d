@@ -230,6 +230,10 @@
 (add-hook 'markdown-mode-hook (lambda () (flyspell-mode 1)))
 (setq ispell-personal-dictionary "~/.emacs.d/.aspell.en.pws")
 
+;; turkish mode
+(require 'turkish)
+
+
 ;; language tool
 (require 'langtool)
 (setq langtool-java-bin "/usr/bin/java")
