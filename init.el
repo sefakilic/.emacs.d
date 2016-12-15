@@ -289,10 +289,15 @@
 ;; mac-os-x settings
 (when (eq system-type 'darwin)
   ; font settings
-  (set-frame-font "monaco-11")
+  (set-frame-font "monaco-12")
   ; make sure environment variables inside Emacs look the same as in the shell.
   (exec-path-from-shell-initialize)
   ; dired tweak
   (setq insert-directory-program "/usr/local/bin/gls"))
 
-;;; init.el ends here
+;; go mode
+(defun go-mode-setup ()
+  (set gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save))
+
+(add-hook 'go-mode-hook 'go-mode-setup)
